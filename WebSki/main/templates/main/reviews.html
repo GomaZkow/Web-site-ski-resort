@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{% block title %}Отзывы{% endblock %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <div class="row"></div>
+  <div class="col-12">
+    <div class="txt mt-4">Отзывы наших гостей</div>
+    <div class="txt2">
+      Узнайте о настоящем опыте отдыха и незабываемых эмоциях от посещения
+      нашего<br />
+      горнолыжного курорта!
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="container mt-5">
+    <div class="row">
+      {% for testimonial in testimonials %}
+        <div class="col-12 col-md-6">
+          {% include 'main/testimonial_card.html' with image_path=testimonial.image_path name=testimonial.name text=testimonial.text %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-12 align-items-center justify-content-center mt-3">
+        <div class="link">
+          <a href="#"> Смотреть дальше > </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+{% endblock %}
