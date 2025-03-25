@@ -1,0 +1,102 @@
+.btn custom-margin-bottom {
+  background: #77a2ed;
+  border-radius: 30px;
+  color: whi;
+  padding: 14px 63px;
+  width: 230px;
+  height: 52px;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  background: #659ad2;
+}
+
+.menu {
+  padding-left: 119px;
+  padding-right: 119px;
+}
+
+.menu button {
+  padding: 60x;
+  color: white;
+}
+
+.custom-margin {
+  margin-right: 20px; /* Отступы между кнопками */
+}
+
+.backgr {
+  background-color: #37528b;
+}
+
+.working-hours {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  text-align: center;
+}
+
+.karusel {
+  border-width: 10px; /* Толщина обводки */
+  border-style: solid; /* Стиль обводки */
+  border-color: #37528b; /* Цвет обводки */
+  border-radius: 30px;
+  width: 972px;
+  height: auto; /* Автоматическая высота */
+  margin: 0 auto; /* Центрирует блок */
+  box-sizing: border-box; /* Учитываем толщину границы */
+  background-color: #f8f9fa; /* Нежный фон для контраста */
+  padding: 10px; /* Добавляем padding */
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.photo {
+  margin-left: 0px;
+  color: #37528b;
+  font-size: 45px;
+  font-family: "Montserrat-Medium", sans-serif;
+}
+
+.txt {
+  margin-left: 0px;
+  color: #37528b;
+  font-family: "Montserrat-Medium", sans-serif;
+}
+
+.FastCheck {
+    color: #37528B;
+    font-size: 28px;
+    font-family: "Montserrat-SemiBold", sans-serif;
+}
+
+.trail {
+    color: #37528B;
+    font-size: 18px;
+    font-family: "Montserrat-SemiBold", sans-serif;
+}
+
+.text {
+    font-size: 18px;
+}
+
+/* Стили для списка */
+.table li {
+    color: #37528B;
+    font-size: 18px;
+    font-family: "Montserrat-SemiBold", sans-serif;
+}
+
+.line {
+    color: #37528B;
+    width: 760px;
+}
+
+.visib {
+    clear: both;
+    visibility: hidden;
+}
