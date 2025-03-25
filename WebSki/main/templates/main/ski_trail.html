@@ -1,0 +1,203 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Трассы{% endblock %}
+{% load static %}
+
+{% block content %}
+
+   <script>
+
+function imageToRose(){
+    document.getElementById("Roza").scrollIntoView({behavior: 'smooth'} );
+
+
+
+}
+function ImageToGaz(){
+document.getElementById("Gaz").scrollIntoView({behavior: 'smooth'});
+
+
+}
+  </script>
+    <div class="container">
+      <div class="row">
+        <div class="col-auto text-section">
+          <div class="FastCheck mt-2">Быстрый переход</div>
+          <div class="trail mt-2">
+            <a href="#Roza" onclick="imageToRose()"> -Трассы роза хутор<br /> </a>
+            <a href="#" onclick="ImageToGaz()"> -Трассы Газ пром(Лаура,Альпика) </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="row">
+          <div class="col-auto text-section">
+            <div class="FastCheck mt-5">Схема трасс Красная Поляна Роза Хутор</div>
+            <div class="trail mt-4">
+              <img id="Roza" src="{% static 'img/svg/Trail/РозаХутор.png' %}" alt="Роха хутор">
+
+              <div class = "text mt-4 ">
+                Ощутите адреналин и скорость, преодолевая препятствия на пути к победе.
+                <br>
+                Наши профессиональные инструкторы помогут вам освоить трассу и насладиться
+                каждым моментом вашего спуска.
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mt-4">
+        <div class="row">
+            <div class="col-5">
+                <h4 class = "FastCheck" >Легкие трассы</h4><br>
+                <ul class=" table list-unstyled">
+                    <li>Б-52 Выше 1350</li><hr class = "line">
+                    <li>Б-52 Ниже 1350</li><hr class = "line">
+                    <li>С-52 Выше 1250</li><hr class = "line">
+                </ul>
+            </div>
+            <div class="col-6">
+                <h4 class = "FastCheck" >Протяженность</h4><br>
+                <ul class="table list-unstyled">
+                    <li >2000 метров</li><hr class="visib">
+                    <li>2048 метров</li><hr class="visib">
+                    <li>2100 метров</li><hr class="visib">
+                </ul>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-5">
+                <h4 class="FastCheck">Сложные трассы</h4><br>
+                <ul class=" table list-unstyled">
+                    <li>Змейка</li></li><hr class = "line">
+                    <li>Озерная</li></li><hr class = "line">
+                    <li>Нагано 96</li></li><hr class = "line">
+                </ul>
+            </div>
+            <div class="col-6">
+                <h4 class = "FastCheck">Протяженность</h4><br>
+                <ul class=" table list-unstyled">
+                    <li>1450 метров</li><hr class="visib">
+                    <li>1870 метров</li><hr class="visib">
+                    <li>1750 метров</li><hr class="visib">
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row mt-4">
+            <div class="col-5">
+                <h4 class="FastCheck">Сложные трассы</h4><br>
+                <ul class=" table list-unstyled">
+                    <li>Каскад</li></li><hr class = "line">
+                    <li>Турин 06</li></li><hr class = "line">
+                    <li>Плато</li></li><hr class = "line">
+                </ul>
+            </div>
+            <div class="col-6">
+                <h4 class = "FastCheck">Протяженность</h4><br>
+                <ul class=" table list-unstyled">
+                    <li>2850 метров</li><hr class="visib">
+                    <li>1925 метров</li><hr class="visib">
+                    <li>2010 метров</li><hr class="visib">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+          <div class="col-auto text-section">
+            <div class="FastCheck mt-5">Схема трасс Красная Поляна Роза Хутор</div>
+            <div class="trail mt-4">
+              <img id = "Gaz"  src="{% static 'img/svg/Trail/Газпром.png' %}" alt="Газпром">
+              <div class = "text mt-4 ">
+                Ощутите адреналин и скорость, преодолевая препятствия на пути к победе.
+                <br>
+                Наши профессиональные инструкторы помогут вам освоить трассу и насладиться
+                каждым моментом вашего спуска.
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mt-4">
+        <div class="row">
+            <div class="col-5">
+                <h4 class = "FastCheck" >Легкие трассы</h4><br>
+                <ul class=" table list-unstyled">
+                    <li>С1</li><hr class = "line">
+                    <li>Е1</li><hr class = "line">
+                    <li>I1 Выше 1250</li><hr class = "line">
+                </ul>
+            </div>
+            <div class="col-6">
+                <h4 class = "FastCheck" >Протяженность</h4><br>
+                <ul class="table list-unstyled">
+                    <li >408 метров</li><hr class="visib">
+                    <li>705 метров</li><hr class="visib">
+                    <li>477 метров</li><hr class="visib">
+                </ul>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-5">
+                <h4 class="FastCheck">Сложные трассы</h4><br>
+                <ul class=" table list-unstyled">
+                    <li>B2</li></li><hr class = "line">
+                    <li>B3</li></li><hr class = "line">
+                    <li>B4</li></li><hr class = "line">
+                </ul>
+            </div>
+            <div class="col-6">
+                <h4 class = "FastCheck">Протяженность</h4><br>
+                <ul class=" table list-unstyled">
+                    <li>835 метров</li><hr class="visib">
+                    <li>420 метров</li><hr class="visib">
+                    <li>1435 метров</li><hr class="visib">
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row mt-4">
+            <div class="col-5">
+                <h4 class="FastCheck">Сложные трассы</h4><br>
+                <ul class=" table list-unstyled">
+                    <li>F4</li></li><hr class = "line">
+                    <li>F5</li></li><hr class = "line">
+                    <li>F6</li></li><hr class = "line">
+                </ul>
+            </div>
+            <div class="col-6">
+                <h4 class = "FastCheck">Протяженность</h4><br>
+                <ul class=" table list-unstyled">
+                    <li>600 метров</li><hr class="visib">
+                    <li>1715 метров</li><hr class="visib">
+                    <li>735 метров</li><hr class="visib">
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
