@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff;
+        color: #333;
+    }
+    .container {
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        color: #37528b;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .table {
+        margin-top: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .table thead {
+        background-color: #37528b;
+        color: #ffffff;
+    }
+    .table th, .table td {
+        padding: 15px;
+        text-align: center;
+    }
+    .table tbody tr:nth-child(even) {
+        background-color: #e6f7ff;
+    }
+    .table tbody tr:hover {
+        background-color: #ccebff;
+    }
+    .total {
+        margin-top: 20px;
+        text-align: right;
+    }
+    .total h3 {
+        font-weight: bold;
+        color: #37528b;
+    }
+    button {
+        background-color: #37528b;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #2a436e;
+    }
+    .delete-button {
+        background-color: #ff5c5c;
+    }
+    .delete-button:hover {
+        background-color: #ff3333;
+    }
+    .modal-header {
+        background-color: #37528b;
+        color: #ffffff;
+    }
+    /* Added styles for input alignment and spacing */
+    .form-label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .mb-3 {
+        margin-bottom: 15px;
+    }
+    .input-group {
+        display: block;
+    }
+</style>
+<body>
+<div class="container">
+    <h1>Корзина</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Продукт</th>
+            <th>Кол-во взрослых</th>
+            <th>Кол-во детских</th>
+            <th>Начало брони</th>
+            <th>Окончание брони</th>
+            <th>Цена</th>
+            <th>Действие</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in cart_items %}
+        <tr id="item-{{ item.id }}">
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.quantity_adults }}</td>
+            <td>{{ item.quantity_children }}</td>
+            <td>{{ item.start_date }}</td>
+            <td>{{ item.end_date }}</td>
+            <td>{{ item.product.price }}</td>
+            <td>
+                <button class="delete-button" onclick="deleteItem({{ item.id }})">Удалить</button>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="total">
+        <h3>Общая сумма: <span id="total-price">{{ total_price|floatformat:2 }}</span> руб.</h3>
+    </div>
+    <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary" onclick="window.history.back()">Назад</button>
+        <button type="button" class="btn btn-primary" onclick="showPaymentPopup()">Оплатить</button>
+    </div>
+</div>
+
+<!-- Payment Popup -->
+<div id="paymentPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 300px; background-color: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); z-index: 1000;">
+    <h5 class="modal-title text-center">Форма оплаты</h5>
+    <form id="paymentForm">
+        <div class="mb-3">
+            <label for="cardNumber" class="form-label">Номер карты</label>
+            <input type="text" class="form-control" id="cardNumber" required>
+        </div>
+        <div class="mb-3">
+            <div class="input-group">
+                <label for="cardExpiry" class="form-label">Срок действия</label>
+                <input type="text" class="form-control" id="cardExpiry" placeholder="MM/YY" required>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="input-group">
+                <label for="cardCVC" class="form-label">CVC</label>
+                <input type="text" class="form-control input-cvc" id="cardCVC" required>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="cardHolder" class="form-label">Владелец карты</label>
+            <input type="text" class="form-control" id="cardHolder" required>
+        </div>
+    </form>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="hidePaymentPopup()">Закрыть</button>
+        <button type="button" class="btn btn-primary" onclick="submitPayment()">Оплатить</button>
+    </div>
+</div>
+
+<script>
+    function deleteItem(itemId) {
+        const itemRow = document.getElementById('item-' + itemId);
+        itemRow.remove();
+        updateTotalPrice();
+    }
+
+    function updateTotalPrice() {
+        let total = 0;
+        document.querySelectorAll('.table tbody tr').forEach(row => {
+            let price = parseFloat(row.querySelector('td:nth-child(6)').textContent);
+            total += price;
+        });
+        document.getElementById('total-price').textContent = total.toFixed(2);
+    }
+
+    function showPaymentPopup() {
+        document.getElementById('paymentPopup').style.display = 'block';
+    }
+
+    function hidePaymentPopup() {
+        document.getElementById('paymentPopup').style.display = 'none';
+    }
+
+    function submitPayment() {
+        const cardNumber = document.getElementById('cardNumber').value;
+        const cardExpiry = document.getElementById('cardExpiry').value;
+        const cardCVC = document.getElementById('cardCVC').value;
+        const cardHolder = document.getElementById('cardHolder').value;
+
+        if (cardNumber && cardExpiry && cardCVC && cardHolder) {
+            alert('Оплата прошла успешно!');
+            document.getElementById('paymentForm').reset();
+            hidePaymentPopup();
+        } else {
+            alert('Пожалуйста, заполните все поля формы.');
+        }
+    }
+
+    updateTotalPrice();
+</script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

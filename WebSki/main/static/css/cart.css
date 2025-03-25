@@ -1,0 +1,70 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light blue background */
+    color: #333;
+}
+
+.container {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #37528b; /* Dark blue for headings */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Table Styles */
+.table {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table thead {
+    background-color: #37528b; /* Dark blue header */
+    color: #ffffff;
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: center;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #e6f7ff; /* Light blue for even rows */
+}
+
+.table tbody tr:hover {
+    background-color: #ccebff; /* Slightly darker blue on hover */
+}
+
+/* Total Section */
+.total {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.total h3 {
+    font-weight: bold;
+    color: #37528b; /* Dark blue for total price */
+}
+
+/* Button Styles (if you have any buttons) */
+button {
+    background-color: #37528b; /* Dark blue button */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2a436e; /* Darker blue on hover */
+}
