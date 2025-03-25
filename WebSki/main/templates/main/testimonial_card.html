@@ -1,0 +1,16 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles_for_testimonials.css' %}">
+
+
+<div class="testimonial-card d-flex flex-column mt-4">
+  <div class="d-flex align-items-center mt-4">
+    <img src="{% static image_path %}" alt="Profile Picture" />
+    <h5 class="mt-4 name fs-7">{{ name }}</h5>
+  </div>
+  <div class="text3 mt-3 fs-5">
+    <p>
+      {{ text }}
+    </p>
+  </div>
+</div>
