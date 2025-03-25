@@ -1,0 +1,108 @@
+.head {
+    margin-left: 86px;
+}
+
+.txt {
+    font-family: "Montserrat-Bold", sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    color: #37528b;
+}
+
+.rectangle {
+    background: linear-gradient(180deg, rgba(119, 162, 237, 1) 0%, rgba(55, 82, 139, 1) 100%);
+    border-radius: 30px;
+    height: 790px;
+    margin-right: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.img-div {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.txt2 {
+    color: #37528b;
+    font-family: "Montserrat-Bold", sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.input-group-custom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.input-group-custom .form-control {
+    width: 256px;
+    height: 58px;
+    border-radius: 20px;
+}
+
+.knopka {
+    border-radius: 20px;
+    background-color: #77a2ed;
+    color: #f8f9fa;
+    width: 256px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.knopka button {
+    color: #f9f9f9;
+    background: none;
+    border: none;
+}
+
+.card-title {
+    color: #f9f9f9;
+}
+
+.fam {
+    margin-top: 30px;
+    color: darkgrey;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+
+.card-text {
+    text-align: left;
+    max-width: 800px;
+}
+
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.event-header h5 {
+    margin: 0;
+}
+
+.event-header p {
+    margin: 0;
+}

@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+{% block title %} Мероприятия {% endblock %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/events.css' %}">
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="txt mt-2">Приключения на склонах: Мероприятия<br> зимнего сезона</div>
+      <div class="txt2">
+        Присоединяйтесь к нам для захватывающих событий и незабываемых активностей <br>
+        на нашем горнолыжном курорте!
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  {% for ev in events %}
+    {% include 'main/events_card.html' with event=ev %}
+  {% endfor %}
+</div>
+
+{% endblock %}
