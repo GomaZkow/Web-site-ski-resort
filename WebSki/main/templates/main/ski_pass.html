@@ -1,0 +1,388 @@
+{% extends 'main/base.html' %}
+{% block title %}ski-pass{% endblock %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/ski_pass.css' %}">
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="txt mt-4">Ваш идеальный день на склонах:<br> Подключитесь к миру приключений</div>
+      <div class="txt2">
+        Без границ на лыжах: Не упустите ни одного мгновения — доступ к всем трассам,<br> подъемникам и эксклюзивным предложениям!
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container p-4 mt-5">
+  <div class="row">
+    <div class="col-12 rounded-5 rectangle d-flex align-items-center p-5">
+      <div class="row">
+        <div class="col-4">
+          <img
+            class="img-fluid rounded-5"
+            src="{% static 'img/svg/ski-pass/ski-pass2 1.png' %}"
+            alt="ski-pass image"
+          />
+        </div>
+        <div class="col-8 text-white">
+          <div class="head fs-2 mb-3">Ski-pass, низкий сезон</div>
+          <div class="fs-5">
+            <br />
+            <pre class="polzynok">
+Действует с момента активации на неограниченное количество
+подъёмов и спусков со спортивным снаряжением в течение одного дня с 9:00 до 22:00.
+
+По тарифу доступны все канатные дороги и горнолыжные трассы,
+открытые на дату посещения курорта.
+График работы канатных дорог и статус открытия горнолыжных
+трасс зависят от погодных условий.
+
+Детский тариф: от 7 до 14 лет включительно.
+            </pre>
+          </div>
+          <form id="cartForm1" method="POST" action="{% url 'add_to_cart' 1 %}">
+            {% csrf_token %}
+            <div class="row align-items-start">
+              <div class="col">
+                <div class="People form-gro up">
+                  <div class="text_rect">
+                    <label class="mt-1 fs-5" for="adults1">Кол-во Взрослых</label>
+                  </div>
+                  <div class="mt-3 form-floating">
+                    <select class="form-select" id="adults1" name="quantity_adults">
+                      <option value="1">Один</option>
+                      <option value="2">Два</option>
+                      <option value="3">Три</option>
+                      <option value="4">Четыре</option>
+                      <option value="5">Пять</option>
+                      <option value="6">Шесть</option>
+                      <option value="7">Семь</option>
+                    </select>
+                    <label for="floatingSelect">Выберите количество</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="People form-gro up">
+                  <div class="text_rect">
+                    <label class="mt-1 fs-5" for="children1">Кол-во детских</label>
+                  </div>
+                  <div class="mt-3 form-floating">
+                    <select class="form-select" id="children1" name="quantity_children">
+                      <option value="1">Один</option>
+                      <option value="2">Два</option>
+                      <option value="3">Три</option>
+                      <option value="4">Четыре</option>
+                      <option value="5">Пять</option>
+                      <option value="6">Шесть</option>
+                      <option value="7">Семь</option>
+                    </select>
+                    <label for="floatingSelect">Выберите количество</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col mt-4">
+                <div class="People form-gro up">
+                  <div class="text_rect2">
+                    <label class="kalen3 mt-1 fs-5" for="startDate1">Дата начала брони</label>
+                  </div>
+                </div>
+
+                <div class="kalen">
+                  <input
+                    type="date"
+                    id="startDate1"
+                    name="start_date"
+                    value="2024-11-14"
+                    min="2024-11-14"
+                    max="2027-12-31"
+                  />
+                </div>
+                <div class="knopka row mt-5">
+                  <button type="button" class="btn btn-lg btn-customm" onclick="submitCartForm(1)">Добавить в корзину</button>
+                </div>
+              </div>
+              <div class="col mt-4">
+                <div class="People form-gro up">
+                  <div class="text_rect2 ">
+                    <label class="kalen4 mt-1 fs-5" for="endDate1">Дата окончания брони</label>
+                  </div>
+                </div>
+
+                <div class="kalen">
+                  <input
+                    type="date"
+                    id="endDate1"
+                    name="end_date"
+                    value="2024-11-15"
+                    min="2024-11-14"
+                    max="2027-12-31"
+                  />
+                </div>
+                <div class="knopka row mt-5">
+                  <button type="button" class="btn btn-lg btn-customm1" onclick="clearForm(1)">Отмена</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container p-4 mt-5">
+  <div class="row">
+    <div class="col-12 rounded-5 rectangle d-flex align-items-center p-5">
+      <div class="row">
+        <div class="col-4">
+          <img
+            class="img-fluid rounded-5"
+            src="{% static 'img/svg/ski-pass/ski-pass2 2.png' %}"
+            alt="Ski-pass Image"
+          />
+        </div>
+        <div class="col-8 text-white">
+          <div class="head fs-2 mb-3">Heliskiing, низкий сезон</div>
+          <div class="fs-5">
+            <br />
+            <pre class="polzynok">
+Действует с момента активации на неограниченное количество
+подъёмов и спусков со спортивным снаряжением в течение одного дня с 9:00 до 22:00.
+
+По тарифу доступны все канатные дороги и горнолыжные трассы,
+открытые на дату посещения курорта.
+График работы канатных дорог и статус открытия горнолыжных
+трасс зависят от погодных условий.
+
+Детский тариф: от 7 до 14 лет включительно.
+            </pre>
+          </div>
+          <form id="cartForm2" method="POST" action="{% url 'add_to_cart' 2 %}">
+            {% csrf_token %}
+            <div class="row align-items-start">
+              <div class="col">
+                <div class="People form-gro up">
+                  <div class="text_rect">
+                    <label class="mt-1 fs-5" for="adults2">Кол-во Взрослых</label>
+                  </div>
+                  <div class="mt-3 form-floating">
+                    <select class="form-select" id="adults2" name="quantity_adults">
+                      <option value="1">Один</option>
+                      <option value="2">Два</option>
+                      <option value="3">Три</option>
+                      <option value="4">Четыре</option>
+                      <option value="5">Пять</option>
+                      <option value="6">Шесть</option>
+                      <option value="7">Семь</option>
+                    </select>
+                    <label for="floatingSelect">Выберите количество</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="People form-gro up">
+                  <div class="text_rect">
+                    <label class="mt-1 fs-5" for="children2">Кол-во детских</label>
+                  </div>
+                  <div class="mt-3 form-floating">
+                    <select class="form-select" id="children2" name="quantity_children">
+                      <option value="1">Один</option>
+                      <option value="2">Два</option>
+                      <option value="3">Три</option>
+                      <option value="4">Четыре</option>
+                      <option value="5">Пять</option>
+                      <option value="6">Шесть</option>
+                      <option value="7">Семь</option>
+                    </select>
+                    <label for="floatingSelect">Выберите количество</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col mt-4">
+                <div class="People form-gro up">
+                  <div class="text_rect2">
+                    <label class="kalen3 mt-1 fs-5" for="startDate2">Дата начала брони</label>
+                  </div>
+                </div>
+
+                <div class="kalen">
+                  <input
+                    type="date"
+                    id="startDate2"
+                    name="start_date"
+                    value="2024-11-14"
+                    min="2024-11-14"
+                    max="2027-12-31"
+                  />
+                </div>
+                <div class="knopka row mt-5">
+                  <button type="button" class="btn btn-lg btn-customm" onclick="submitCartForm(2)">Добавить в корзину</button>
+                </div>
+              </div>
+              <div class="col mt-4">
+                <div class="People form-gro up">
+                  <div class="text_rect2 ">
+                    <label class="kalen4 mt-1 fs-5" for="endDate2">Дата окончания брони</label>
+                  </div>
+                </div>
+
+                <div class="kalen">
+                  <input
+                    type="date"
+                    id="endDate2"
+                    name="end_date"
+                    value="2024-11-15"
+                    min="2024-11-14"
+                    max="2027-12-31"
+                  />
+                </div>
+                <div class="knopka row mt-5">
+                  <button type="button" class="btn btn-lg btn-customm1" onclick="clearForm(2)">Отмена</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container p-4 mt-5">
+  <div class="row">
+    <div class="col-12 rounded-5 rectangle d-flex align-items-center p-5">
+      <div class="row">
+        <div class="col-4">
+          <img
+            class="img-fluid rounded-5"
+            src="{% static 'img/svg/ski-pass/ski-pass2 3.png' %}"
+            alt="Ski-pass Image"
+          />
+        </div>
+        <div class="col-8 text-white">
+          <div class="head fs-2 mb-3">Heliskiing, высокий сезон</div>
+          <div class="fs-5">
+            <br />
+            <pre class="polzynok">
+Действует с момента активации на неограниченное количество
+подъёмов и спусков со спортивным снаряжением в течение одного дня с 9:00 до 22:00.
+
+По тарифу доступны все канатные дороги и горнолыжные трассы,
+открытые на дату посещения курорта.
+График работы канатных дорог и статус открытия горнолыжных
+трасс зависят от погодных условий.
+
+Детский тариф: от 7 до 14 лет включительно.
+            </pre>
+          </div>
+          <form id="cartForm3" method="POST" action="{% url 'add_to_cart' 3 %}">
+            {% csrf_token %}
+            <div class="row align-items-start">
+              <div class="col">
+                <div class="People form-gro up">
+                  <div class="text_rect">
+                    <label class="mt-1 fs-5" for="adults3">Кол-во Взрослых</label>
+                  </div>
+                  <div class="mt-3 form-floating">
+                    <select class="form-select" id="adults3" name="quantity_adults">
+                      <option value="1">Один</option>
+                      <option value="2">Два</option>
+                      <option value="3">Три</option>
+                      <option value="4">Четыре</option>
+                      <option value="5">Пять</option>
+                      <option value="6">Шесть</option>
+                      <option value="7">Семь</option>
+                    </select>
+                    <label for="floatingSelect">Выберите количество</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="People form-gro up">
+                  <div class="text_rect">
+                    <label class="mt-1 fs-5" for="children3">Кол-во детских</label>
+                  </div>
+                  <div class="mt-3 form-floating">
+                    <select class="form-select" id="children3" name="quantity_children">
+                      <option value="1">Один</option>
+                      <option value="2">Два</option>
+                      <option value="3">Три</option>
+                      <option value="4">Четыре</option>
+                      <option value="5">Пять</option>
+                      <option value="6">Шесть</option>
+                      <option value="7">Семь</option>
+                    </select>
+                    <label for="floatingSelect">Выберите количество</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col mt-4">
+                <div class="People form-gro up">
+                  <div class="text_rect2">
+                    <label class="kalen3 mt-1 fs-5" for="startDate3">Дата начала брони</label>
+                  </div>
+                </div>
+
+                <div class="kalen">
+                  <input
+                    type="date"
+                    id="startDate3"
+                    name="start_date"
+                    value="2024-11-14"
+                    min="2024-11-14"
+                    max="2027-12-31"
+                  />
+                </div>
+                <div class="knopka row mt-5">
+                  <button type="button" class="btn btn-lg btn-customm" onclick="submitCartForm(3)">Добавить в корзину</button>
+                </div>
+              </div>
+              <div class="col mt-4">
+                <div class="People form-gro up">
+                  <div class="text_rect2 ">
+                    <label class="kalen4 mt-1 fs-5" for="endDate3">Дата окончания брони</label>
+                  </div>
+                </div>
+
+                <div class="kalen">
+                  <input
+                    type="date"
+                    id="endDate3"
+                    name="end_date"
+                    value="2024-11-15"
+                    min="2024-11-14"
+                    max="2027-12-31"
+                  />
+                </div>
+                <div class="knopka row mt-5">
+                  <button type="button" class="btn btn-lg btn-customm1" onclick="clearForm(3)">Отмена</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function submitCartForm(formId) {
+    const form = document.getElementById('cartForm' + formId);
+    form.submit();
+  }
+
+  function clearForm(formId) {
+    const form = document.getElementById('cartForm' + formId);
+    form.reset();
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,61 @@
+.txt {
+  font-family: "Montserrat-Bold", sans-serif;
+  font-size: 45px;
+  font-weight: 700;
+  color: #37528b;
+}
+.txt2 {
+  color: #37528b;
+  font-family: "Montserrat-Bold", sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  height: 67px;
+}
+
+
+
+.rectangle {
+  background: linear-gradient(
+    180deg,
+    rgba(119, 162, 237, 1) 0%,
+    rgba(55, 82, 139, 1) 100%
+  );
+
+  height: 822px;
+  position: relative;
+}
+
+
+.People select {
+  width: 256px;
+  border-radius: 20px;
+}
+.text_rect {
+  margin-left: 47px;
+}
+
+
+
+.kalen input {
+  width: 256px;
+  height: 58px;
+  border-radius: 20px;
+}
+.kalen3 {
+  margin-left: 40px;
+}
+.kalen4 {
+  margin-left: 20px;
+}
+.knopka{
+border-radius: 30px;
+background-color: #77a2ed;
+color: #f8f9fa;
+width: 280px;
+height: 65px;
+}
+.knopka button{
+  color:#f9f9f9 ;
+
+}
+
